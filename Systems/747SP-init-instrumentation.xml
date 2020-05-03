@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!-- Initialize instrumentation  :
+
+-->
+
+<PropertyList>
+
+  <adf n="1">
+   <serviceable type="bool">true</serviceable>
+   <mode>adf</mode>
+  </adf>
+
+  <dme n="0">                                                                   <!-- specific DME -->
+   <frequencies>
+    <source>/instrumentation/nav[0]/frequencies/selected-mhz</source>
+   </frequencies>
+  </dme>
+
+  <dme n="1">
+   <serviceable type="bool">true</serviceable>
+   <frequencies>
+    <source>/instrumentation/nav[1]/frequencies/selected-mhz</source>
+   </frequencies>
+  </dme>
+
+  <hsi>
+   <serviceable type="bool" archive="y">true</serviceable>
+  </hsi>
+
+  <ins n="0">
+   <ground-speed-fps alias="/fdm/jsbsim/velocities/vg-fps"/>
+  </ins>
+
+  <inst-vertical-speed-indicator>
+   <serviceable type="bool" archive="y">true</serviceable>
+<!--
+   <indicated-speed-fps alias="/velocities/vertical-speed-fps"/>
+-->
+  </inst-vertical-speed-indicator>
+
+  <radar>                                                                  <!-- TCAS 1) required by AI -->
+   <range type="int" archive="y">40</range>
+  </radar>
+
+  <radio-altimeter>
+   <serviceable type="bool" archive="y">true</serviceable>
+   <indicated-altitude-ft alias="/position/altitude-agl-ft"/>
+  </radio-altimeter>
+
+  <tcas>                                                                   <!-- TCAS 2) number of visible traffics -->
+   <serviceable type="bool">true</serviceable>
+
+   <nb-traffics type="int">0</nb-traffics>
+   <range type="int" archive="y">45</range>                                <!-- maximum range -->
+
+   <traffics>
+    <traffic n="0">
+     <distance-nm type="double">9999.0</distance-nm>                       <!-- no traffic -->
+    </traffic>
+    <traffic n="1">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="2">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="3">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="4">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="5">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="6">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="7">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+    <traffic n="8">
+     <distance-nm type="double">9999.0</distance-nm>
+    </traffic>
+   </traffics>
+  </tcas>
+
+</PropertyList>

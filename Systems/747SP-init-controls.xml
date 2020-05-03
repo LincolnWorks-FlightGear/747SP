@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!-- - creates  booleans (impossible with Nasal), which would otherwise be empty strings by default.
+     - makes more readable the initialization state.
+-->
+
+<PropertyList>
+
+  <autoflight>
+   <altitude></altitude>
+   <automach-ft type="double">28000.0</automach-ft>
+   <autopilot n="0">
+    <engage type="bool">false</engage>
+   </autopilot>
+   <autothrottle-engage type="bool">false</autothrottle-engage>
+   <dial-altitude-ft type="double">10000.0</dial-altitude-ft>
+   <dial-heading-deg type="double">283.0</dial-heading-deg>
+   <dial-mach type="double">0.84</dial-mach>
+   <dial-speed-kt type="double">250.0</dial-speed-kt>
+   <heading></heading>
+   <horizontal-selector type="int">-1</horizontal-selector>                        <!-- magnetic heading -->
+   <real-nav type="bool">true</real-nav>
+   <vertical></vertical>
+   <vertical-selector type="int">-1</vertical-selector>                            <!-- off -->
+  </autoflight>
+
+  <flight>
+   <spoilers-lever type="double">0.0</spoilers-lever>
+  </flight>
+
+  <seat>
+   <recover userarchive="y" type="bool">false</recover>
+  </seat>
+
+</PropertyList>

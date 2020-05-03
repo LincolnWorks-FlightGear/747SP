@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!-- intialize systems :
+
+-->
+
+<PropertyList>
+
+  <autopilot>
+   <state>
+    <vor-engage type="bool">false</vor-engage>
+    <waypoint-nm type="double">0.0</waypoint-nm>
+   </state>
+  </autopilot>
+
+  <engines>
+   <engine n="0">
+    <engine-num>1</engine-num>
+   </engine>
+   <engine n="1">
+    <engine-num>2</engine-num>
+   </engine>
+   <engine n="2">
+    <engine-num>3</engine-num>
+   </engine>
+   <engine n="3">
+    <engine-num>4</engine-num>
+   </engine>
+  </engines>
+
+  <fuel>
+   <presets type="int">0</presets>                                                     <!-- max landing load -->
+
+   <tanks include="../Nasal/747SP-fuel.xml"/>
+  </fuel>
+
+  <human>
+   <captain>
+    <stowe-norm type="double">0.0</stowe-norm>
+   </captain>
+   <copilot>
+    <stowe-norm type="double">0.0</stowe-norm>
+   </copilot>
+  </human>
+
+  <seat>
+   <captain type="bool">true</captain>
+   <copilot type="bool">false</copilot>
+   <cargo-aft type="bool">false</cargo-aft>
+   <cargo-forward type="bool">false</cargo-forward>
+   <engineer type="bool">false</engineer>
+   <gear-well type="bool">false</gear-well>
+   <observer type="bool">false</observer>
+   <position>
+    <cargo-aft>
+     <x-m type="double">0.0</x-m>
+     <y-m type="double">0.0</y-m>
+     <z-m type="double">0.0</z-m>
+    </cargo-aft>
+    <cargo-forward>
+     <x-m type="double">0.0</x-m>
+     <y-m type="double">0.0</y-m>
+     <z-m type="double">0.0</z-m>
+    </cargo-forward>
+    <gear-well>
+     <x-m type="double">0.0</x-m>
+     <y-m type="double">0.0</y-m>
+     <z-m type="double">0.0</z-m>
+    </gear-well>
+    <observer>
+     <x-m type="double">0.0</x-m>
+     <y-m type="double">0.0</y-m>
+     <z-m type="double">0.0</z-m>
+    </observer>
+   </position>
+  </seat>
+
+  <warning>
+   <amber>
+    <cargo-doors type="bool">false</cargo-doors>
+   </amber>
+   <red>
+    <pull-up type="bool">false</pull-up>
+   </red>
+   <texture>
+    <amber>
+     <cargo-doors type="string"></cargo-doors>
+    </amber>
+    <red>
+     <pull-up type="string"></pull-up>
+    </red>
+   </texture>
+  </warning>
+
+</PropertyList>
