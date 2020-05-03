@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>communication</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>Communications</label>
+    <valign>top</valign>
+    <halign>center</halign>
+  </text>
+  
+  <hrule/>
+  
+  <!-- Grupo geral -->
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+    <valign>top</valign>  
+  
+		  <group> 
+		    <layout>hbox</layout>
+				<input>
+			      <halign>left</halign>
+			      <label>Transponder</label>
+			      <property>/instrumentation/transponder/id-code</property>
+			      <type>STRING</type>
+			      <width>100</width>
+	              <height>25</height>
+			      <border>2</border>
+			      <live>true</live>
+			      <binding>
+			        <command>dialog-apply</command>
+			      </binding>
+			    </input>
+		  </group>
+		  
+  <hrule/>
+
+		  <group>
+		    <layout>hbox</layout>
+				    <checkbox>
+				      <halign>left</halign>
+				      <label>Serviceable</label>
+				      <property>/instrumentation/transponder/serviceable</property>
+				      <binding>
+				        <command>property-toggle</command>
+				        <property>/instrumentation/transponder/serviceable</property>
+				      </binding>
+				      <binding>
+				        <command>property-toggle</command>
+				        <property>/instrumentation/transponder/inputs/serviceable</property>
+				      </binding>
+				      <binding>
+				        <command>property-toggle</command>
+				        <property>/sim/sound/switch</property>
+				      </binding>
+				    </checkbox>
+		
+		  </group>
+		  
+		  <group>
+		    <layout>hbox</layout>
+		    <empty><stretch>true</stretch></empty>
+		    <button>
+		      <legend>OK</legend>
+		      <equal>true</equal>
+		      <default>true</default>
+		      <key>Esc</key>
+		      <binding><command>dialog-apply</command></binding>
+		      <binding><command>dialog-close</command></binding>
+		    </button>
+		    <empty><stretch>true</stretch></empty>
+		  </group>
+		  		  
+    </group>
+
+
+</PropertyList>
+

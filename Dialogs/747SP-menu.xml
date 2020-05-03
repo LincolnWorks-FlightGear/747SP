@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>747SP-menu</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+
+  <text>
+    <label>747SP menu</label>
+  </text>
+
+  <hrule><dummy/></hrule>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Crew</legend>
+      <key>c</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>747SP-crew</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Fuel</legend>
+      <key>f</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>747SP-fuel</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Radio</legend>
+      <key>r</key>
+      <binding>
+       <command>dialog-show</command>
+       <dialog-name>747SP-radios</dialog-name>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <button>
+      <legend>Help</legend>
+      <key>h</key>
+      <binding>
+       <command>nasal</command>
+       <script>gui.showHelpDialog("/sim/help")</script>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>press the first letter, or escape/return</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <text>
+    <label>~  fields are saved on exit in aircraft-data</label>
+    <color>
+      <red>0.5</red>
+      <green>0.5</green>
+      <blue>0.5</blue>
+    </color>
+  </text>
+
+  <text>
+    <label></label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+</PropertyList>

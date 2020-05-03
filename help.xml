@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+
+<!-- 747SP online help :
+
+     WARNING : real data are duplicated from Readme.
+-->
+
+<PropertyList>
+
+<!-- Specific keys -->
+
+    <key>
+     <name>left/right</name>
+     <desc>autopilot heading</desc>
+    </key>
+
+    <key>
+     <name></name>
+     <desc>floating view left/right</desc>
+    </key>
+
+    <key>
+     <name>up/down</name>
+     <desc>increase/decrease altitude</desc>
+    </key>
+
+    <key>
+     <name></name>
+     <desc>floating view front/aft</desc>
+    </key>
+
+    <key>
+     <name>home/end</name>
+     <desc>increase/decrease altitude (slow)</desc>
+    </key>
+
+    <key>
+     <name></name>
+     <desc>floating view front/aft (fast)</desc>
+    </key>
+
+    <key>
+      <name>page up/down</name>
+      <desc>increase/decrease autothrottle</desc>
+    </key>
+
+    <key>
+      <name></name>
+      <desc>floating view up/down</desc>
+    </key>
+
+    <key>
+      <name>a/A</name>
+      <desc>speed-up</desc>
+    </key>
+
+    <key>
+      <name>j / k</name>
+      <desc>decrease / increase spoilers</desc>
+    </key>
+
+    <key>
+     <name>q</name>
+     <desc>quit speed-up</desc>
+    </key>
+
+    <key>
+      <name>S</name>
+      <desc>swap 2D panels</desc>
+    </key>
+
+    <key>
+      <name>ctrl-A</name>
+      <desc>toggle altitude select</desc>
+    </key>
+
+    <key>
+      <name>ctrl-D</name>
+      <desc>disconnect autopilot</desc>
+    </key>
+
+    <key>
+      <name>ctrl-E</name>
+      <desc>engineer view</desc>
+    </key>
+
+    <key>
+      <name>ctrl-G</name>
+      <desc>toggle glide slope + vor loc</desc>
+    </key>
+
+    <key>
+      <name>ctrl-H</name>
+      <desc>toggle heading select</desc>
+    </key>
+
+    <key>
+     <name>ctrl-I</name>
+     <desc>menu</desc>
+    </key>
+
+    <key>
+      <name>ctrl-J</name>
+      <desc>copilot view</desc>
+    </key>
+
+    <key>
+      <name>ctrl-K</name>
+      <desc>observer (floating) view</desc>
+    </key>
+
+    <key>
+      <name>ctrl-N</name>
+      <desc>toggle vor loc</desc>
+    </key>
+
+    <key>
+      <name>ctrl-S</name>
+      <desc>toggle autothrottle</desc>
+    </key>
+
+    <key>
+      <name>ctrl-T</name>
+      <desc>toggle altitude hold</desc>
+    </key>
+
+    <key>
+     <name>shift-ctrl-X</name>
+     <desc>restore floating view</desc>
+    </key>
+
+
+<!-- FDM ops -->
+
+    <text>
+ ________________________Procedures_________________________
+ Takeoff :
+          rotation 180 kt (full load), 170 kt (landing load), flaps 20.
+          trim before engaging autopilot.
+ Climb :
+          flaps retraction with autothrottle.
+          310 kt above 10000 ft.
+ Cruise :
+          0.84 mach.
+ Descent :
+          at 225 NM (38000 ft).
+          310 kt below 28000 ft.
+ Approach :
+          160 kt (landing load), 150 kt (empty tank), flaps 20.
+ Final :
+          160 kt (landing load), 150 kt (empty tank), 140 kt (empty weight), flaps 30.
+          arm spoilers.
+ Landing :
+          154 kt (landing load), 140 kt (empty tank).
+          touch down below 400 ft/min.
+
+<!-- Real data -->
+ ________________________Limitations________________________
+ Vne/Mne       : 445 kt / Mach 0.95
+ Vmo/Mmo       : 375 kt / Mach 0.92
+
+ landing gear limits
+    extended   : 320 kt / Mach 0.82
+    extend     : 270 kt / Mach 0.82
+    retract    : 250 kt / Mach 0.82
+
+ flaps limits
+     1 deg     : 275 kt
+     5 deg     : 255 kt
+    10 deg     : 238 kt
+    20 deg     : 231 kt
+    25 deg     : 205 kt
+    30 deg     : 180 kt
+
+ V2   (MTOW)   : 190 kt
+ Vapp
+    min        : Vref + 5 kt
+    app        : Vref + 1/2 head wind
+    max        : Vref + 20 kt
+ Vref (MLW)    : 154 kt
+
+ ceiling : 45100 ft
+
+ max take off (MTOW) : 833000 lb
+ max landing  (MLW)  : 630000 lb
+    </text>
+
+</PropertyList>

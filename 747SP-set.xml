@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+
+<!-- 747SP.
+-->
+
+ <PropertyList>
+
+	<sim include="Nasal/747SP-sim.xml">
+
+		<description>Boeing 747SP (JT9D engines)</description>
+        <author>Joshua Davidson (it0uchpods/411), Martien van der P (3D), Alex Iannuzzi (Liveries)</author>
+		<status>alpha</status>
+		<aircraft-version>0.04</aircraft-version>
+
+		<flight-model>yasim</flight-model>
+		<aero>747SP-JT9D</aero>
+
+		<startup>
+			<splash-texture>Aircraft/747SP/splash.png</splash-texture>
+		</startup>
+
+		<systems>
+			<path>Aircraft/747SP/Systems/747SP-systems.xml</path>
+			<autopilot>
+				<path>Aircraft/747SP/Systems/it-autoflight.xml</path>
+			</autopilot>
+			<autopilot>
+				<path>Aircraft/747SP/Systems/it-autothrust.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Pushback</name>
+				<path>Aircraft/747-8i/Systems/pushback.xml</path>
+			</autopilot>
+			<electrical>
+				<path>Aircraft/Generic/generic-electrical.xml</path>
+			</electrical>
+
+		</systems>
+
+		<instrumentation>
+			<path>Aircraft/747SP/Systems/747SP-instrumentation.xml</path>
+		</instrumentation>
+
+		<sound>
+			<path>Aircraft/747SP/Sounds/747SP-sound.xml</path>
+		</sound>
+
+
+
+		<hud>
+			<path>Huds/Custom/default.xml</path>
+			<visibility>false</visibility>
+			<enable3d>false</enable3d>
+		</hud>
+
+		<model>
+			<path>Aircraft/747SP/Models/747SP.xml</path>
+			<livery>
+				<file type="string">NWO</file>
+			</livery>
+			<wings>
+				<file type="string">NWO</file>
+			</wings>
+			<!-- Adiciona o pushback -->
+			<pushback>
+				<kp type="double">-0.05</kp>
+				<kd type="double">0</kd>
+				<ti type="double">10</ti>
+				<td type="double">0.00001</td>
+				<position-norm type="double">0</position-norm>
+			</pushback>
+		</model>
+
+		<chase-distance-m type="double" archive="y">-90.0</chase-distance-m>
+
+		<virtual-cockpit archive="y">true</virtual-cockpit>
+
+		<help include="help.xml"/>
+		
+		<menubar>
+			<default>
+				<menu n="3">
+				<item n="0">
+           			<label>Autopilot Dialog</label>
+            			<binding>
+             			 <command>nasal</command>
+              			<script>var ap_dialog = gui.Dialog.new("sim/gui/dialogs/ap_dialog/dialog", "Aircraft/747SP/Dialogs/it-autoflight-dlg.xml");
+                             ap_dialog.open();</script>
+            		</binding>
+        	  	</item>
+		</menu>
+				<menu n="100">
+					<label>747SP</label>
+					<enabled type="bool">true</enabled>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.open()</script>
+						</binding>
+					</item>
+					<item>
+						<label>Pushback</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							  var dlg = gui.Dialog.new("/sim/gui/dialogs/pushback-config/dialog", "Aircraft/747SP/Dialogs/pushback.xml");
+				       </script>
+						</binding>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+		<weight n="0">
+        	    <name>Crew</name>
+        	    <weight-lb type="double">400</weight-lb>
+        	    <max-lb type="double">600</max-lb>
+        	    <min-lb type="double">300</min-lb>
+        	</weight>
+		<weight n="1">
+		    <name>Pax/Cargo</name>
+		    <weight-lb type="double">60000.0</weight-lb>
+		    <max-lb type="double">84340.0</max-lb>
+		    <min-lb type="double">0.0</min-lb>
+		</weight>
+	</sim>
+
+<it-autoflight>
+	<config>
+		<roll>
+			<kp-low>0.11</kp-low> <!-- Kp at low speed -->
+			<kp-high>0.05</kp-high> <!-- Kp at high speed -->
+			<ti>1.0</ti>
+			<td>0.0001</td>
+		</roll>
+		<pitch>
+			<kp-low>-0.14</kp-low> <!-- Kp at low speed -->
+			<kp-high>-0.06</kp-high> <!-- Kp at high speed -->
+			<ti>0.5</ti>
+			<td>0.001</td>
+		</pitch>
+		<cmd>
+			<hdg>1.6</hdg>
+			<vorloc>2.6</vorloc>
+			<alt-gain>-5</alt-gain>
+		</cmd>
+		<autoland> 
+			<pitch-kp>0.0051</pitch-kp>
+			<yaw-kp>-0.05</yaw-kp>
+		</autoland>
+		<rollout>
+			<roll-kp>-0.1</roll-kp>
+			<pitch-defl>0.15</pitch-defl>
+			<yaw-kp>-0.02</yaw-kp>
+		</rollout>
+	</config>
+	<settings>
+		<auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
+		<disable-final>0</disable-final> <!-- Disable the Final Controllers, for custom FCS integration -->
+		<land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
+		<land-flap>0.7</land-flap> <!-- Minimum Flap used for Landing -->
+		<retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
+		<retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
+		<togaspd>160</togaspd> <!-- V2 + 10kts -->
+		<lat-agl-ft>50</lat-agl-ft> <!-- AGL when LNAV becomes active if armed -->
+		<reduc-agl-ft>1500</reduc-agl-ft> <!-- AGL when T/O CLB changes to SPD CLB (FLCH), set to 0 to disable -->
+		<autoland-without-ap>1</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
+	</settings>
+</it-autoflight>
+
+	<engines>
+		<engine n="0">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="1">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="2">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="3">
+			<running>true</running>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+	</engines>
+
+		<!-- required by nasal -->
+	<!--consumables>
+		<fuel include="Systems/747SP-init-fuel.xml"/>
+	</consumables-->
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>Center</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="1">
+				<name>Main #2</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="2">
+				<name>Main #3</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="3">
+				<name>Main #1</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="4">
+				<name>Main #4</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="5">
+				<name>Res #1</name>
+				<selected type="bool">1</selected>
+			</tank>
+			<tank n="6">
+				<name>Res #4</name>
+				<selected type="bool">1</selected>
+			</tank>
+		</fuel>
+	</consumables>
+
+	<nasal>
+		<Boeing747>
+			<file>Aircraft/747SP/Nasal/747SP-constants.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP-override.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP-instrument.nas</file>
+			<!--file>Aircraft/747SP/Nasal/747SP-fuel.nas</file-->
+			<file>Aircraft/747SP/Nasal/747SP-autopilot.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP-interface.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP-warning.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP-crew.nas</file>
+			<file>Aircraft/747SP/Nasal/747SP.nas</file>
+		</Boeing747>
+		<reversethrust>
+			<file>Aircraft/747SP/Nasal/reverse-thrust.nas</file>
+		</reversethrust>
+		<lights>
+			<file>Aircraft/747SP/Nasal/lights.nas</file>
+		</lights>
+		<groundservice>
+			<file>Aircraft/747SP/Nasal/groundservice.nas</file>
+		</groundservice>
+	    <livery>
+	        <file>Aircraft/747SP/Nasal/livery.nas</file>
+	    </livery>
+	    <itaf>
+		<file>Aircraft/747SP/Nasal/it-autoflight.nas</file>
+	    </itaf>		
+	
+
+	</nasal>
+
+	<input>
+		<keyboard include="Nasal/747SP-keyboard.xml">
+		</keyboard>
+	</input>
+
+	<surface-positions include="Systems/747SP-init-surface.xml"/>
+
+
+	<!-- ============= -->
+	<!-- customization -->
+	<!-- ============= -->
+
+	<controls include="Systems/747SP-init-controls.xml">
+
+	<!-- Ajuste dos controles -->
+		<groundservice>
+			<active type="bool">false</active>
+		</groundservice>
+		<gear>
+			<brake-parking>1.0</brake-parking>
+			<gear-down>true</gear-down>
+		</gear>
+		<lighting>
+			<instruments-norm>0.0</instruments-norm>
+			<landing-lights type="bool">0</landing-lights>
+			<beacon type="bool">0</beacon>
+			<strobe type="bool">0</strobe>
+			<nav-lights type="bool">0</nav-lights>
+			<cabin-lights type="bool">0</cabin-lights>
+			<wing-lights type="bool">0</wing-lights>
+			<taxi-light type="bool">0</taxi-light>
+			<instrument-lights type="bool">0</instrument-lights>
+		</lighting>
+		<cabin>
+			<fan type="bool">0</fan>
+			<heat type="bool">0</heat>
+		</cabin>
+		
+	</controls>
+
+	<systems include="Systems/747SP-init-systems.xml">
+	</systems>
+
+	<instrumentation include="Systems/747SP-init-instrumentation.xml">
+
+		<!-- ADF 2 (not available by GUI dialog) -->
+
+		<adf n="1">
+			<frequencies>
+				<selected-khz>380</selected-khz>
+				<!-- Vagey near KMSP -->
+				<standby-khz>228</standby-khz>
+				<!-- Omiya near RJAA -->
+			</frequencies>
+		</adf>
+
+		<!-- decision altitude -->
+
+		<radio-altimeter n="0">
+			<decision-ft>218</decision-ft>
+			<!-- offset : 218 = 200 ft -->
+		</radio-altimeter>
+
+	</instrumentation>
+
+
+  <limits>
+   <mass-and-balance>
+	<maximum-ramp-mass-lbs>666000</maximum-ramp-mass-lbs>
+	<maximum-takeoff-mass-lbs>660000</maximum-takeoff-mass-lbs>
+	<maximum-landing-mass-lbs>450000</maximum-landing-mass-lbs>
+	<maximum-zero-fuel-mass-lbs>410000</maximum-zero-fuel-mass-lbs>
+   </mass-and-balance>
+  </limits>
+
+</PropertyList>

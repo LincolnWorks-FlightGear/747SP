@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   
+				<key n="127">
+					<name>Delete</name>
+					<desc>Toggle Reversers</desc>
+					<binding>
+						<command>nasal</command>
+						<script>reversethrust.togglereverser()</script>
+					</binding>
+				</key>
+</PropertyList>
